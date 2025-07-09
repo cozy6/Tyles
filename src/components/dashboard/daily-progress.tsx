@@ -87,7 +87,7 @@ export function DailyProgress({ goals, className }: DailyProgressProps) {
                 className="p-2 rounded-full"
                 style={{ backgroundColor: `${goal.color}20` }}
               >
-                <Icon className="h-4 w-4" style={{ color: goal.color }} />
+                <Icon className="h-4 w-4" color={goal.color} />
               </div>
               <div>
                 <p className="font-medium text-sm">{goal.label}</p>
