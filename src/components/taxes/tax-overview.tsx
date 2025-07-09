@@ -113,7 +113,7 @@ export function TaxOverview() {
   // Calculate deductions by category
   expenses.forEach(expense => {
     const category = expense.category || 'other';
-    if (category.includes('vehicle') || category === 'gas') {
+    if (category.includes('vehicle') || category === 'fuel') {
       deductionCategories.vehicle.amount += expense.amount;
     } else if (category === 'phone') {
       deductionCategories.phone.amount += expense.amount;

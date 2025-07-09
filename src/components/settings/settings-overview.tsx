@@ -280,7 +280,7 @@ export function SettingsOverview() {
                     <select
                       id="taxStatus"
                       value={formData.taxStatus}
-                      onChange={(e) => setFormData(prev => ({ ...prev, taxStatus: e.target.value }))}
+                      onChange={(e) => setFormData(prev => ({ ...prev, taxStatus: e.target.value as any }))}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent"
                     >
                       {taxFilingOptions.map(option => (

@@ -89,7 +89,7 @@ const goalTemplates = [
 ];
 
 export function GoalsOverview() {
-  const { userData, userGoals, loading } = useUserData();
+  const { userData, goals, loading } = useUserData();
   const { getTotalEarnings, getGoalProgress } = useUserStore();
   const [showNewGoalDialog, setShowNewGoalDialog] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState('');

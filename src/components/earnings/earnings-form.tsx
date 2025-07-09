@@ -213,9 +213,9 @@ export function EarningsForm() {
                         <div className="flex items-center gap-3">
                           <div
                             className="p-2 rounded-full"
-                            style={{ backgroundColor: `${platform.color}20` }}
+                            style={{ backgroundColor: `${platform.color || '#666'}20` }}
                           >
-                            <Icon className="h-4 w-4" style={{ color: platform.color }} />
+                            <Icon className="h-4 w-4" style={{ color: platform.color || '#666' }} />
                           </div>
                           <div>
                             <p className="font-medium text-sm">{platform.name}</p>

@@ -271,7 +271,7 @@ export function InsightsOverview() {
           <CardContent>
             <div className="space-y-4">
               {insights.length > 0 ? (
-                insights.map((insight, index) => {
+                insights.filter(insight => insight && typeof insight === 'object').map((insight, index) => {
                   const Icon = insight.icon;
                   return (
                     <div key={index} className={`p-4 rounded-lg border-l-4 ${

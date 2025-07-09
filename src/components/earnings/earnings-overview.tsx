@@ -329,16 +329,16 @@ export function EarningsOverview() {
                         <div className="flex items-center gap-2 text-sm text-gray-600">
                           <Calendar className="h-3 w-3" />
                           {formatDate(earning.date)}
-                          {earning.hours_worked > 0 && (
+                          {(earning.hours_worked || 0) > 0 && (
                             <>
                               <Clock className="h-3 w-3 ml-2" />
-                              {earning.hours_worked}h
+                              {earning.hours_worked || 0}h
                             </>
                           )}
-                          {earning.trip_count > 0 && (
+                          {(earning.trip_count || 0) > 0 && (
                             <>
                               <MapPin className="h-3 w-3 ml-2" />
-                              {earning.trip_count} trips
+                              {earning.trip_count || 0} trips
                             </>
                           )}
                         </div>
@@ -349,9 +349,9 @@ export function EarningsOverview() {
                         <p className="font-semibold text-green-600">
                           +${earning.amount.toFixed(2)}
                         </p>
-                        {earning.hours_worked > 0 && (
+                        {(earning.hours_worked || 0) > 0 && (
                           <p className="text-sm text-gray-600">
-                            ${(earning.amount / earning.hours_worked).toFixed(2)}/hr
+                            ${(earning.amount / (earning.hours_worked || 1)).toFixed(2)}/hr
                           </p>
                         )}
                       </div>
@@ -409,35 +409,26 @@ export function EarningsOverview() {
                             
                             {/* Detailed Information */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              {earning.hours_worked > 0 && (
+                              {(earning.hours_worked || 0) > 0 && (
                                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                                   <Clock className="h-5 w-5 text-gray-600" />
                                   <div>
                                     <p className="font-medium">Hours Worked</p>
-                                    <p className="text-sm text-gray-600">{earning.hours_worked} hours</p>
+                                    <p className="text-sm text-gray-600">{earning.hours_worked || 0} hours</p>
                                   </div>
                                 </div>
                               )}
                               
-                              {earning.trip_count > 0 && (
+                              {(earning.trip_count || 0) > 0 && (
                                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                                   <Route className="h-5 w-5 text-gray-600" />
                                   <div>
                                     <p className="font-medium">Trip Count</p>
-                                    <p className="text-sm text-gray-600">{earning.trip_count} trips</p>
+                                    <p className="text-sm text-gray-600">{earning.trip_count || 0} trips</p>
                                   </div>
                                 </div>
                               )}
                               
-                              {earning.miles_driven > 0 && (
-                                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                                  <MapPin className="h-5 w-5 text-gray-600" />
-                                  <div>
-                                    <p className="font-medium">Miles Driven</p>
-                                    <p className="text-sm text-gray-600">{earning.miles_driven} miles</p>
-                                  </div>
-                                </div>
-                              )}
                               
                               {earning.tips > 0 && (
                                 <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
@@ -482,32 +473,24 @@ export function EarningsOverview() {
                                     </div>
                                   </div>
                                   
-                                  {earning.hours_worked > 0 && (
+                                  {(earning.hours_worked || 0) > 0 && (
                                     <div className="flex justify-between items-center text-sm text-gray-600 mt-2">
                                       <span>Hourly Rate</span>
                                       <span>
-                                        ${(earning.amount / earning.hours_worked).toFixed(2)}/hr
+                                        ${(earning.amount / (earning.hours_worked || 1)).toFixed(2)}/hr
                                       </span>
                                     </div>
                                   )}
                                   
-                                  {earning.trip_count > 0 && (
+                                  {(earning.trip_count || 0) > 0 && (
                                     <div className="flex justify-between items-center text-sm text-gray-600">
                                       <span>Per Trip</span>
                                       <span>
-                                        ${(earning.amount / earning.trip_count).toFixed(2)}/trip
+                                        ${(earning.amount / (earning.trip_count || 1)).toFixed(2)}/trip
                                       </span>
                                     </div>
                                   )}
                                   
-                                  {earning.miles_driven > 0 && (
-                                    <div className="flex justify-between items-center text-sm text-gray-600">
-                                      <span>Per Mile</span>
-                                      <span>
-                                        ${(earning.amount / earning.miles_driven).toFixed(2)}/mile
-                                      </span>
-                                    </div>
-                                  )}
                                 </div>
                               </CardContent>
                             </Card>
