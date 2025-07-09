@@ -201,7 +201,7 @@ export function ActivityOverview() {
   });
 
   // Get unique platforms
-  const uniquePlatforms = [...new Set(sampleTransactions.map(t => t.platform).filter(Boolean))];
+  const uniquePlatforms = [...new Set(sampleTransactions.map(t => t.platform).filter((platform): platform is string => Boolean(platform)))];
 
   // Calculate totals
   const totalEarnings = filteredTransactions

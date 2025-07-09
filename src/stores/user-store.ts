@@ -133,7 +133,7 @@ export const useUserStore = create<UserStore>()(
         
         if (error) throw error;
         
-        set({ platforms: data, errors: { ...get().errors, platforms: null } });
+        set({ platforms: data || [], errors: { ...get().errors, platforms: null } });
       } catch (error: any) {
         set({ errors: { ...get().errors, platforms: error.message } });
       } finally {
@@ -157,7 +157,7 @@ export const useUserStore = create<UserStore>()(
         
         if (error) throw error;
         
-        set({ earnings: data, errors: { ...get().errors, earnings: null } });
+        set({ earnings: data || [], errors: { ...get().errors, earnings: null } });
       } catch (error: any) {
         set({ errors: { ...get().errors, earnings: error.message } });
       } finally {
@@ -181,7 +181,7 @@ export const useUserStore = create<UserStore>()(
         
         if (error) throw error;
         
-        set({ expenses: data, errors: { ...get().errors, expenses: null } });
+        set({ expenses: data || [], errors: { ...get().errors, expenses: null } });
       } catch (error: any) {
         set({ errors: { ...get().errors, expenses: error.message } });
       } finally {
@@ -201,7 +201,7 @@ export const useUserStore = create<UserStore>()(
         
         if (error) throw error;
         
-        set({ goals: data, errors: { ...get().errors, goals: null } });
+        set({ goals: data || [], errors: { ...get().errors, goals: null } });
       } catch (error: any) {
         set({ errors: { ...get().errors, goals: error.message } });
       } finally {
@@ -220,7 +220,7 @@ export const useUserStore = create<UserStore>()(
         
         if (error) throw error;
         
-        set({ connectedAccounts: data, errors: { ...get().errors, connectedAccounts: null } });
+        set({ connectedAccounts: data || [], errors: { ...get().errors, connectedAccounts: null } });
       } catch (error: any) {
         set({ errors: { ...get().errors, connectedAccounts: error.message } });
       } finally {
